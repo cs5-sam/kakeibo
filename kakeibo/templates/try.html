@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Basic Calculator</title>
+        <style type="text/css">
+            .btn{ background-color: darkgreen;
+                padding-left: 20px;
+                padding-right: 20px; 
+                padding-top: 10dp; 
+                padding-bottom: 10dp;}
+            #divall{background-color: gray; 
+                    width: 300px; 
+                    height: 230px; 
+                    margin: 10px;
+                    padding: 5px;}
+            .cen{align-items: center;}
+        </style>
+    </head>
+    <body>
+        <div id="divall">
+            <h1 style="text-align: center;">Calculator</h1>
+            <p>Type Value 1: <input id="n1" ></p>
+            <p>Type Value 2: <input id="n2" ></p>
+            <div class="cen">
+                <button class="btn" id="sum">+</button>
+                <button class="btn" onclick="sub()">-</button>
+                <button class="btn" onclick="mul()">x</button>
+                <button class="btn" onclick="div()">/</button>
+            </div>
+            <p class="cen">Result: </p>
+            <h1 id="res"></h1>
+        </div>
+    <script>
+        const sumBtn = document.querySelector('#sum');
+        sumBtn.addEventListener('click', () => {
+            var field1 = document.getElementById("n1").value;
+            var field2 = document.getElementById("n2").value;
+            var result = parseFloat(field1) + parseFloat(field2);
+            if(!isNaN(result)){
+                console.log(result);
+                document.getElementById("res").innerText=result;
+            }
+        });
+        function sub(){
+            var field1 = document.getElementById("n1");
+            var field2 = document.getElementById("n2");
+            var result = parseFloat(field1) - parseFloat(field2);
+            if(!isNaN(result)){
+                document.getElementById("res").innerHTML=result;
+            }
+        }
+        function mul(){
+            var field1 = document.getElementById("n1");
+            var field2 = document.getElementById("n2");
+            var result = parseFloat(field1) * parseFloat(field2);
+            if(!isNaN(result)){
+                document.getElementById("res").innerHTML=result;
+            }
+        }
+        function div(){
+            var field1 = document.getElementById("n1");
+            var field2 = document.getElementById("n2");
+            var result = parseFloat(field1) / parseFloat(field2);
+            if(!isNaN(result)){
+                document.getElementById("res").innerHTML=result;
+            }
+        }
+    </script>
+    </body>
+</html>
